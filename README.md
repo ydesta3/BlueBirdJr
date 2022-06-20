@@ -14,8 +14,8 @@ The following **core** features are completed:
 
 **A user should**
 
-- [ ] See an app icon in the home screen and a styled launch screen
-- [ ] Be able to log in using their Twitter account
+- [X] See an app icon in the home screen and a styled launch screen
+- [X] Be able to log in using their Twitter account
 - [ ] See at latest the latest 20 tweets for a Twitter account in a Table View
 - [ ] Be able to refresh data by pulling down on the Table View
 - [ ] Be able to like and retweet from their Timeline view
