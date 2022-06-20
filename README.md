@@ -1,8 +1,3 @@
-# Twitter
-
-### Starter project
-The starter project can be found in the `starter-project` tag. Download and run `pod install`.
-
 
 ### Notes
 https://paper.dropbox.com/doc/Twitter--ADuVCVvwop_njSNAbUU96Q2VAQ-g255BPX3K4X7G0reYOWCI
@@ -90,3 +85,8 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+
+
+### Notes
+https://paper.dropbox.com/doc/Twitter--ADuVCVvwop_njSNAbUU96Q2VAQ-g255BPX3K4X7G0reYOWCI
