@@ -24,7 +24,7 @@
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             for (NSDictionary *dictionary in tweets) {
                 NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
+                NSLog(@": YD: %@", text);
             }
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
