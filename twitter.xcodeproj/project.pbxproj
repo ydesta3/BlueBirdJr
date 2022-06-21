@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50C51A3E28611ABE00724A90 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50C51A3D28611ABE00724A90 /* Keys.plist */; };
 		50C51A412861A1E900724A90 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C51A402861A1E900724A90 /* User.m */; };
 		50C51A442861A2DF00724A90 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C51A432861A2DF00724A90 /* Tweet.m */; };
 		50C51A4D286239B800724A90 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C51A4C286239B800724A90 /* TweetCell.m */; };
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
 		43D6142D6F34C1AE98EE4951 /* libPods-twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50C51A3D28611ABE00724A90 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		50C51A3F2861A1E900724A90 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		50C51A402861A1E900724A90 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		50C51A422861A2DF00724A90 /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				6AD278E320BC4B970085BC29 /* LaunchScreen.storyboard */,
 				6AD278E620BC4B970085BC29 /* Info.plist */,
 				6AD278E720BC4B970085BC29 /* main.m */,
-				50C51A3D28611ABE00724A90 /* Keys.plist */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -218,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50C51A3E28611ABE00724A90 /* Keys.plist in Resources */,
 				6AD278E520BC4B970085BC29 /* LaunchScreen.storyboard in Resources */,
 				6AD278E220BC4B970085BC29 /* Assets.xcassets in Resources */,
 				6AD278E020BC4B950085BC29 /* Main.storyboard in Resources */,
