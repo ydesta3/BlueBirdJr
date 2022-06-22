@@ -16,11 +16,11 @@ The following **core** features are completed:
 
 - [X] See an app icon in the home screen and a styled launch screen
 - [X] Be able to log in using their Twitter account
-- [ ] See at latest the latest 20 tweets for a Twitter account in a Table View
-- [ ] Be able to refresh data by pulling down on the Table View
+- [X] See at latest the latest 20 tweets for a Twitter account in a Table View
+- [X] Be able to refresh data by pulling down on the Table View
 - [ ] Be able to like and retweet from their Timeline view
-- [ ] Only be able to access content if logged in
-- [ ] Each tweet should display user profile picture, username, screen name, tweet text, timestamp, as well as buttons and labels for favorite, reply, and retweet counts.
+- [X] Only be able to access content if logged in
+- [X] Each tweet should display user profile picture, username, screen name, tweet text, timestamp, as well as buttons and labels for favorite, reply, and retweet counts.
 - [ ] Compose and post a tweet from a Compose Tweet view, launched from a Compose button on the Nav bar.
 - [ ] See Tweet details in a Details view
 - [ ] App should render consistently all views and subviews in recent iPhone models and all orientations
