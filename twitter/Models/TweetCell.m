@@ -12,8 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    //TweetCell.likeButton.setTitle("", for: .normal);
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -11,13 +11,12 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TweetCell.h"
+#import "ComposeViewController.h"
 
-
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
 @property (nonatomic, strong)NSMutableArray *arrayOfTweets;
 @property (nonatomic, strong) IBOutlet UIRefreshControl *refresh;
-
 
 @end
 
@@ -68,15 +67,16 @@
     [[APIManager shared] logout];
 }
 
-/*
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    // UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = [segue destinationViewController];
+    composeController.delegate = self;
 }
-*/
-
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *tweetCell = [tableView dequeueReusableCellWithIdentifier:@"tweetCell"];
@@ -86,8 +86,18 @@
     tweetCell.userName.text = tweet.user.name;
     tweetCell.userAlias.text = tweet.user.screenName;
     tweetCell.dateOfTweet.text = tweet.createdAtString;
-    tweetCell.retweetCount.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
-    tweetCell.likeCount.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
+    //tweetCell.retweetCount.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
+    //tweetCell.likeCount.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
+    NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
+    NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+
+    [tweetCell.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
+    [tweetCell.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
+    
+    //UIColor blackTextButtonColor =
+    //[tweetCell.retweetButton setTitleColor:retweetNum forState:(UIControlStateNormal)];
+    //[tweetCell.likeButton setTitleColor: forState:(UIControlStateNormal)];
+     
     
     // fetches user profile picture
     NSString *URLString = tweet.user.profilePicture;
@@ -105,6 +115,12 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;
+}
+
+
+- (void)didTweet:(nonnull Tweet *)tweet {
+    [self.arrayOfTweets insertObject:tweet atIndex:0];
+    [self.tweetTableView reloadData];
 }
 
 
