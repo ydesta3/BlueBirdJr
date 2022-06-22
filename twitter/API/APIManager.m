@@ -30,7 +30,6 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 - (instancetype)init {
     
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
-    
     // pull API keys from Keys.plist file
     NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
