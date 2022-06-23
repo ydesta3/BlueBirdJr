@@ -85,27 +85,6 @@
     
     // sets tweet instance to current tweet in tweet cell
     tweetCell.tweet = tweet;
-    
-//    tweetCell.tweetDescription.text = tweet.text;
-//    tweetCell.userName.text = tweet.user.name;
-//    tweetCell.userAlias.text = tweet.user.screenName;
-//    tweetCell.dateOfTweet.text = tweet.createdAtString;
-//    NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
-//    NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
-//
-//    [tweetCell.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
-//    [tweetCell.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
-//
-//    // fetches user profile picture
-//    NSString *URLString = tweet.user.profilePicture;
-//    NSURL *url = [NSURL URLWithString:URLString];
-//    NSData *urlData = [NSData dataWithContentsOfURL:url];
-//    // stores data in image object
-//    UIImage *image = [UIImage imageWithData:urlData];
-//    // matches types, sets image to profile picture
-//    tweetCell.userPhoto.image = image;
-//    tweetCell.userPhoto.layer.cornerRadius = (tweetCell.userPhoto.frame.size.height)/2;
-//    tweetCell.userPhoto.clipsToBounds = true;
     return tweetCell;
     
 }
