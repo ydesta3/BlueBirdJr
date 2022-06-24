@@ -54,8 +54,6 @@
     // updates local tweet model
     if(!self.tweet.favorited) {
         self.tweet.favorited = YES;
-        // update cell UI
-        [self refreshFavoritedData];
         // send a POST request to the POST favorites/create endpoint
         [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
@@ -64,13 +62,16 @@
              }
              else{
                  self.tweet.favoriteCount += 1;
+                 NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+                 [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                 // update cell UI
+                 [self refreshFavoritedData];
+
              }
         }];
     } else {
         self.tweet.favorited = NO;
-        // update cell UI
-        [self refreshFavoritedData];
         [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                  self.tweet.favorited = YES;
@@ -78,23 +79,21 @@
              }
              else{
                  self.tweet.favoriteCount -= 1;
+                 NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+                 [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+                 // update cell UI
+                 [self refreshFavoritedData];
              }
         }];
         
     }
-    
-
 }
 
 - (IBAction)didTapRetweet:(id)sender {
     if(!self.tweet.retweeted){
         // updates local tweet model
         self.tweet.retweeted = YES;
-        self.tweet.retweetCount += 1;
-        // update cell UI
-        [self refreshRetweetData];
-    
         // send a POST request to the POST favorites/create endpoint
         [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
@@ -103,13 +102,16 @@
              }
              else{
                  self.tweet.retweetCount += 1;
+                 NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
+                 [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                 // update cell UI
+                 [self refreshRetweetData];
              }
         }];
     } else {
+        // updates local tweet model
         self.tweet.retweeted = NO;
-        // update cell UI
-        [self refreshRetweetData];
         [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                  self.tweet.retweeted = YES;
@@ -117,7 +119,11 @@
              }
              else{
                  self.tweet.retweetCount -= 1;
+                 NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
+                 [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+                 // update cell UI
+                 [self refreshRetweetData];
              }
         }];
         

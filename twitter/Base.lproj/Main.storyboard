@@ -238,10 +238,10 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Gu-pr-A4I">
-                                <rect key="frame" x="30" y="170" width="368" height="300"/>
+                                <rect key="frame" x="30" y="170" width="368" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="a8t-1t-M1D"/>
+                                    <constraint firstAttribute="height" constant="250" id="a8t-1t-M1D"/>
                                     <constraint firstAttribute="width" constant="368" id="c8h-g7-eK1"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -256,10 +256,9 @@
                             <constraint firstItem="Rqc-Zc-65r" firstAttribute="leading" secondItem="7CQ-m0-kLe" secondAttribute="leading" id="EUU-q8-y0J"/>
                             <constraint firstItem="7CQ-m0-kLe" firstAttribute="trailing" secondItem="3Gu-pr-A4I" secondAttribute="trailing" constant="30" id="GmN-3M-peb"/>
                             <constraint firstItem="3Gu-pr-A4I" firstAttribute="leading" secondItem="7CQ-m0-kLe" secondAttribute="leading" constant="30" id="GrI-Ka-8MM"/>
+                            <constraint firstItem="3Gu-pr-A4I" firstAttribute="top" secondItem="PzF-ai-tWz" secondAttribute="top" constant="170" id="c42-wG-HWW"/>
                             <constraint firstItem="Rqc-Zc-65r" firstAttribute="trailing" secondItem="7CQ-m0-kLe" secondAttribute="trailing" id="fAy-Gi-6xX"/>
-                            <constraint firstItem="7CQ-m0-kLe" firstAttribute="bottom" secondItem="3Gu-pr-A4I" secondAttribute="bottom" constant="493" id="fze-lT-5Gc"/>
                             <constraint firstItem="3Gu-pr-A4I" firstAttribute="top" secondItem="Rqc-Zc-65r" secondAttribute="bottom" constant="70" id="mAu-og-7pM"/>
-                            <constraint firstItem="3Gu-pr-A4I" firstAttribute="top" secondItem="PzF-ai-tWz" secondAttribute="top" constant="170" id="sLd-fT-ahK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ZaE-CX-dZ2"/>

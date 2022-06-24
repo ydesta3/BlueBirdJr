@@ -33,9 +33,6 @@
 
     [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
     [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
-    
-    //self.likeButton.font = [UIFont systemFontOfSize:5];
-    //self.retweetButton.font = [UIFont systemFontOfSize:5];
 
     
     // fetches user profile picture
@@ -48,39 +45,10 @@
     self.userPhoto.image = image;
     self.userPhoto.layer.cornerRadius = (self.userPhoto.frame.size.height)/2;
     self.userPhoto.clipsToBounds = true;
+    
+    [self refreshFavoritedData];
+    [self refreshRetweetData];
 }
-
-//-(void)setTweet:(Tweet *)tweet {
-//
-//    _tweet = tweet;
-//
-//    self.tweetDescription.text = tweet.text;
-//    self.userName.text = tweet.user.name;
-//    NSString *at = @"@";
-//    NSString *screenAlias = self.tweet.user.screenName;
-//    self.userAlias.text = [ at stringByAppendingString:screenAlias];
-//    self.dateOfTweet.text = tweet.createdAtString;
-//    NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
-//    NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
-//
-//    [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
-//    [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
-//
-//    //self.likeButton.font = [UIFont systemFontOfSize:5];
-//    //self.retweetButton.font = [UIFont systemFontOfSize:5];
-//
-//
-//    // fetches user profile picture
-//    NSString *URLString = tweet.user.profilePicture;
-//    NSURL *url = [NSURL URLWithString:URLString];
-//    NSData *urlData = [NSData dataWithContentsOfURL:url];
-//    // stores data in image object
-//    UIImage *image = [UIImage imageWithData:urlData];
-//    // matches types, sets image to profile picture
-//    self.userPhoto.image = image;
-//    self.userPhoto.layer.cornerRadius = (self.userPhoto.frame.size.height)/2;
-//    self.userPhoto.clipsToBounds = true;
-//}
 
 
 - (IBAction)didTapFavorite:(id)sender {
@@ -97,6 +65,8 @@
              }
              else{
                  self.tweet.favoriteCount += 1;
+                 NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+                 [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
              }
         }];
@@ -111,6 +81,8 @@
              }
              else{
                  self.tweet.favoriteCount -= 1;
+                 NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+                 [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
              }
         }];
@@ -134,6 +106,8 @@
              }
              else{
                  self.tweet.retweetCount += 1;
+                 NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
+                 [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
              }
         }];
@@ -148,6 +122,8 @@
              }
              else{
                  self.tweet.retweetCount -= 1;
+                 NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
+                 [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
                  NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
              }
         }];
@@ -161,7 +137,6 @@
     if(self.tweet.favorited) {
         UIImage *favoritedButton = [UIImage imageNamed:@"favor-icon-red.png"];
         [self.likeButton setImage:favoritedButton forState:UIControlStateNormal];
-        
     } else {
         UIImage *favoritedButton = [UIImage imageNamed:@"favor-icon.png"];
         [self.likeButton setImage:favoritedButton forState:UIControlStateNormal];
@@ -177,9 +152,5 @@
         [self.retweetButton setImage:favoritedButton forState:UIControlStateNormal];
     }
 }
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 
 @end
