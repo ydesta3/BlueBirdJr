@@ -91,7 +91,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *tweetCell = [tableView dequeueReusableCellWithIdentifier:@"tweetCell"];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
-    
+    tweetCell.selectionStyle = nil;
     // sets tweet instance to current tweet in tweet cell
     tweetCell.tweet = tweet;
     return tweetCell;
