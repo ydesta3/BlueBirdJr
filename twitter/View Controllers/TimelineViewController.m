@@ -12,6 +12,7 @@
 #import "LoginViewController.h"
 #import "TweetCell.h"
 #import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
@@ -75,8 +76,16 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     // UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = [segue destinationViewController];
-    composeController.delegate = self;
+    if ([segue.identifier  isEqual: @"toDetailsPage"]){
+        TweetDetailsViewController *tweetDetailsController = [segue destinationViewController];
+        NSIndexPath *index = self.tweetTableView.indexPathForSelectedRow;
+        Tweet *dataToPass = self.arrayOfTweets[index.row];
+        tweetDetailsController.tweet = dataToPass;
+        
+    } else{
+        ComposeViewController *composeController = [segue destinationViewController];
+        composeController.delegate = self;
+    }
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

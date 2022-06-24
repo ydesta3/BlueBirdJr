@@ -1,44 +1,45 @@
 //
-//  TweetCell.m
+//  TweetDetailsViewController.m
 //  twitter
 //
-//  Created by Yonatan Desta on 6/21/22.
+//  Created by Yonatan Desta on 6/23/22.
 //  Copyright © 2022 Emerson Malca. All rights reserved.
 //
 
-#import "TweetCell.h"
+#import "TweetDetailsViewController.h"
 #import "APIManager.h"
 #import "Tweet.h"
+#import "TimelineViewController.h"
 #import "DateTools.h"
 
-@implementation TweetCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
+@interface TweetDetailsViewController ()
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
+@end
 
--(void)setTweet:(Tweet *)tweet {
-    
-    _tweet = tweet;
-    
-    self.tweetDescription.text = tweet.text;
-    self.userName.text = tweet.user.name;
+@implementation TweetDetailsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.tweetDescription.text = self.tweet.text;
+    self.userName.text = self.tweet.user.name;
     NSString *at = @"@";
     NSString *screenAlias = self.tweet.user.screenName;
     self.userAlias.text = [ at stringByAppendingString:screenAlias];
-    self.dateOfTweet.text = tweet.createdAtString;
-    NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
-    NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+    self.dateOfTweet.text = self.tweet.createdAtString;
+    NSString *retweetNum = [NSString stringWithFormat:@"%i", self.tweet.retweetCount] ;
+    NSString *likeNum = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount] ;
 
     [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
     [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
-        
+    
+    //self.likeButton.font = [UIFont systemFontOfSize:5];
+    //self.retweetButton.font = [UIFont systemFontOfSize:5];
+
+    
     // fetches user profile picture
-    NSString *URLString = tweet.user.profilePicture;
+    NSString *URLString = self.tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     // stores data in image object
@@ -48,6 +49,38 @@
     self.userPhoto.layer.cornerRadius = (self.userPhoto.frame.size.height)/2;
     self.userPhoto.clipsToBounds = true;
 }
+
+//-(void)setTweet:(Tweet *)tweet {
+//
+//    _tweet = tweet;
+//
+//    self.tweetDescription.text = tweet.text;
+//    self.userName.text = tweet.user.name;
+//    NSString *at = @"@";
+//    NSString *screenAlias = self.tweet.user.screenName;
+//    self.userAlias.text = [ at stringByAppendingString:screenAlias];
+//    self.dateOfTweet.text = tweet.createdAtString;
+//    NSString *retweetNum = [NSString stringWithFormat:@"%i", tweet.retweetCount] ;
+//    NSString *likeNum = [NSString stringWithFormat:@"%i", tweet.favoriteCount] ;
+//
+//    [self.retweetButton setTitle:retweetNum forState:(UIControlStateNormal)];
+//    [self.likeButton setTitle:likeNum forState:(UIControlStateNormal)];
+//
+//    //self.likeButton.font = [UIFont systemFontOfSize:5];
+//    //self.retweetButton.font = [UIFont systemFontOfSize:5];
+//
+//
+//    // fetches user profile picture
+//    NSString *URLString = tweet.user.profilePicture;
+//    NSURL *url = [NSURL URLWithString:URLString];
+//    NSData *urlData = [NSData dataWithContentsOfURL:url];
+//    // stores data in image object
+//    UIImage *image = [UIImage imageWithData:urlData];
+//    // matches types, sets image to profile picture
+//    self.userPhoto.image = image;
+//    self.userPhoto.layer.cornerRadius = (self.userPhoto.frame.size.height)/2;
+//    self.userPhoto.clipsToBounds = true;
+//}
 
 
 - (IBAction)didTapFavorite:(id)sender {
@@ -83,8 +116,6 @@
         }];
         
     }
-    
-
 }
 
 - (IBAction)didTapRetweet:(id)sender {
@@ -146,5 +177,9 @@
         [self.retweetButton setImage:favoritedButton forState:UIControlStateNormal];
     }
 }
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
 
 @end
