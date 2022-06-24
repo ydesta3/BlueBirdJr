@@ -6,7 +6,7 @@ https://paper.dropbox.com/doc/Twitter--ADuVCVvwop_njSNAbUU96Q2VAQ-g255BPX3K4X7G0
 
 BlueBirdJr is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **30** hours spent in total
 
 ## User Stories
 
@@ -49,8 +49,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. API management especially in the case when you are using more than one API.
+2. Model-View-Controller hierarchy and how to design a custom Model-View-Controller to better help you write efficient code.
 
 ## Video Walkthrough
 
@@ -62,7 +62,8 @@ GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+My challenges primarily came from auto-layout and figuring how to refactor code when I made changes to code dependent on other
+aspects of the project.
 
 ## Credits
 
